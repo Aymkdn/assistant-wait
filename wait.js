@@ -31,12 +31,12 @@ AssistantWait.prototype.action = function(commande) {
 /**
  * Initialisation du plugin
  *
+ * @param  {Object} configuration La configuration
  * @param  {Object} plugins Un objet qui contient tous les plugins chargés
  * @return {Promise} resolve(this)
  */
-exports.init=function(plugins) {
-  var aw = new AssistantWait();
-  return aw.init(plugins)
+exports.init=function(configuration, plugins) {
+  return new AssistantWait().init(plugins)
   .then(function(resource) {
     console.log("[assistant-wait] Plugin chargé et prêt.");
     return resource;
