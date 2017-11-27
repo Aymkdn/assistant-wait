@@ -1,7 +1,9 @@
 {
   "name": "assistant-wait",
-  "version": "1.0.0",
-  "description": "Plugin Wait pour un Assistant",
+  "version": "1.1.0",
+  "description": "Plugin Wait pour un Assistant via le package assistant-plugins",
   "author": "aymkdn",
-  "main":"wait.js"
+  "main":"wait.js",
+  "repository":"https://github.com/Aymkdn/assistant-wait/",
+  "license": "MIT"
 }
