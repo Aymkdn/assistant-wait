@@ -1,4 +1,6 @@
-var AssistantWait = function() {}
+var AssistantWait = function() {
+  this.timeout=-1;
+}
 AssistantWait.prototype.init = function(plugins) {
   this.plugins = plugins;
   return Promise.resolve(this);
@@ -14,6 +16,14 @@ AssistantWait.prototype.init = function(plugins) {
  * "1 heure"
  */
 AssistantWait.prototype.action = function(commande) {
+  var _this=this;
+  if (commande === "annuler" || commande === "cancel") {
+    if (_this.timeout>-1) clearTimeout(_this.timeout);
+    _this.timeout=-1;
+    console.log("[assistant-wait] Timer annulé.");
+    if (_this.plugins.notifier) _this.plugins.notifier.action("Timer annulé.");
+    return Promise.resolve();
+  }
   commande = commande.split(" ");
   var delay = commande[0];
   switch (commande[1].slice(0,5)) {
@@ -22,7 +32,7 @@ AssistantWait.prototype.action = function(commande) {
     case "heure": { delay *= 1000 * 60 * 60; break; }
   }
   return new Promise(function(prom_res) {
-    setTimeout(function() {
+    _this.timeout=setTimeout(function() {
       prom_res();
     }, delay)
   })

@@ -24,3 +24,4 @@ On appelera la commande `wait_` suivi par un nombre et le texte-temps.
   - `wait_5 minutes` : attendre 5 minutes
   - `wait_30 secondes` : attendre 30 secondes
   - `wait_2 heures` : attendre 2 heures
+  - `wait_annuler` : va annuler le dernier timer appelé

@@ -1,6 +1,6 @@
 {
   "name": "assistant-wait",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Plugin Wait pour un Assistant via le package assistant-plugins",
   "author": "aymkdn",
   "main":"wait.js",
